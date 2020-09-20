@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/navy_dark"
+        tools:context=".activity.MainActivity">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_nav_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_baseline_keyboard_arrow_left_24_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020년 5월"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_avgTime_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="10.4"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_nav_time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="hr.avg"
+            android:textColor="@color/gray_light"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_avgTime_day"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_avgTime_day"
+            app:layout_constraintStart_toEndOf="@+id/tv_avgTime_day" />
+
+        <TextView
+            android:id="@+id/tv_totalTime_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="total: 250.4"
+            android:textColor="@color/gray_dark"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_avgTime_day"
+            app:layout_constraintTop_toBottomOf="@+id/tv_avgTime_day" />
+
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleX="1.1"
+            app:layout_constraintTop_toBottomOf="@+id/tv_totalTime_month" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_bottomChart_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            app:cardBackgroundColor="@color/ivory"
+            app:cardCornerRadius="8dp"
+            app:contentPaddingBottom="36dp"
+            app:contentPaddingLeft="12dp"
+            app:contentPaddingRight="12dp"
+            app:contentPaddingTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barChart">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_day_bottom_chart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7일 목요일"
+                    android:textColor="@color/navy_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_totalTime_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="13.0"
+                    android:textColor="@color/navy_dark"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_day_bottom_chart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="hr"
+                    android:textColor="@color/navy_dark"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_totalTime_bottom"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_totalTime_bottom"
+                    app:layout_constraintStart_toEndOf="@+id/tv_totalTime_bottom" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_totalTime_bottom" />
+
+                <TextView
+                    android:id="@+id/tv_text_sitting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Longest sitting"
+                    android:textColor="@color/navy_dark"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/barChart_bottom" />
+
+                <TextView
+                    android:id="@+id/tv_longest_sitting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="6.5hr"
+                    android:textColor="@color/navy_dark"
+                    android:textSize="18sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_text_sitting"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Sitting_devk"
